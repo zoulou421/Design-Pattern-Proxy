@@ -12,8 +12,13 @@ public class Proxy implements Standard{
 		System.out.println("Context security verification...");
 		boolean b=new Random().nextBoolean();
 		if(b) {
+			System.out.println("BEFORE CALL:");
+			System.out.println("do some tasks if necessary...");
 			target=new StandardImpl1();//object charged if satisfied
 			target.process();
+			
+			System.out.println("AFTER CALL:");
+			System.out.println("do some tasks...");
 		}else {
 			throw new RuntimeException("Forbidden: 403");
 		}
